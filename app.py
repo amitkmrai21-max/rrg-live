@@ -58,12 +58,24 @@ run_button = st.sidebar.button("🔄 Refresh / Run", type="primary")
 # ---------------- FUNCTIONS ----------------
 
 
-@st.cache_data(ttl=900)  # 15 min cache
+@st.cache_data(ttl=3600)  # 1 hour cache - rate limit se bachne ke liye
 def get_data(symbols, benchmark, period, interval):
+    import time
     tickers = symbols + [benchmark]
-    data = yf.download(tickers, period=period, interval=interval)["Close"]
-    data = data.dropna(how="all")
-    return data
+    last_error = None
+    for attempt in range(3):
+        try:
+            data = yf.download(tickers, period=period, interval=interval,
+                                progress=False, threads=False)["Close"]
+            data = data.dropna(how="all")
+            if not data.empty:
+                return data
+        except Exception as e:
+            last_error = e
+        time.sleep(5)  # thoda ruk kar retry karo
+    if last_error:
+        raise last_error
+    return pd.DataFrame()
 
 
 def compute_rrg(data, symbols, benchmark, window):
@@ -171,7 +183,7 @@ with st.spinner(f"{MARKET} data fetch ho raha hai..."):
             st.warning("Data kaafi nahi hai. Period badha do (2y ya 3y try karo).")
         else:
             fig = plot_rrg(rs_ratio_df, rs_mom_df, tail=TAIL_LENGTH)
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width="stretch")
             st.caption(f"Last updated: {data.index[-1].strftime('%d-%b-%Y')} | Benchmark: {BENCHMARK}")
     except Exception as e:
         st.error(f"Error aaya: {e}")
