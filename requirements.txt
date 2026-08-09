@@ -1,4 +1,5 @@
 streamlit
 google-genai
 pillow
-requests
+yfinance
+pandas
