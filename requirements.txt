@@ -4,4 +4,3 @@ pillow
 yfinance
 pandas
 matplotlib
-pillow
