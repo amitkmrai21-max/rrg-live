@@ -1,7 +1,0 @@
-streamlit
-yfinance
-pandas
-matplotlib
-Pillow
-google-genai
-streamlit-autorefresh
