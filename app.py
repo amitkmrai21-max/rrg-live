@@ -471,7 +471,7 @@ with tab4:
         if st.button("Analyze Image with AI", key="analyze_img"):
             with st.spinner("Analyzing image..."):
                 prompt = "Aap ek professional trading analyst hain. Is chart ko analyze karke BUY/SELL/WAIT decision, Entry, Target, aur Stop loss bataayein."
-                for m in ["gemini-1.5-flash", "gemini-2.0-flash"]:
+                for m in ["gemini-1.5-flash", "gemini-2.5-flash"]:
                     try:
                         resp = client.models.generate_content(
                             model=m, contents=[img, prompt]
