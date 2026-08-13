@@ -1,6 +1,9 @@
+
 streamlit
-google-genai
-pillow
 yfinance
 pandas
 matplotlib
+Pillow
+google-genai
+streamlit-autorefresh
+
