@@ -176,7 +176,7 @@ def clean_ai_response(text):
     text = str(text).strip()
 
     if len(text) > 6000:
-        text = text[:6000] + "
+        text = text[:6000]
 
 
     return text
