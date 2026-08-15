@@ -179,7 +179,6 @@ def clean_ai_response(text):
         text = text[:6000] + "
 
 
-
     return text
 
 
