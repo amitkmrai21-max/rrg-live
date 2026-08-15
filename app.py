@@ -178,7 +178,7 @@ def clean_ai_response(text):
     if len(text) > 6000:
         text = text[:6000] + "
 
-[Response shortened]"
+
 
     return text
 
