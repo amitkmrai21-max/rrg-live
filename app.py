@@ -1,4 +1,4 @@
-import json
+koimport json
 import os
 from datetime import datetime
 
@@ -716,16 +716,16 @@ def generate_fallback_signal(price, rsi, sma20, sma50):
         reason = "Market mixed/consolidating hai. Confirmation ka wait karein."
 
    return (
-    f"### ACTION: {action}
+    msg = "### ACTION: " + {action} + "
 
 "
-    f"- **Entry**: {entry}
+    msg += "- **Entry**: " + {entry} + "
 "
-    f"- **Target**: {target}
+    msg += "- **Target**: " + {target} + "
 "
-    f"- **Stop-Loss**: {stop}
+    msg += "- **Stop-Loss**: " + {stop} + "
 "
-    f"- **Reasoning**: {reason}"
+    msg += "- **Reasoning**: " + {reason} + "
 )
 
  
