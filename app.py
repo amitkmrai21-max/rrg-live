@@ -715,18 +715,18 @@ def generate_fallback_signal(price, rsi, sma20, sma50):
         stop = "N/A"
         reason = "Market mixed/consolidating hai. Confirmation ka wait karein."
 
-    return (
-        f"### ACTION: {action}
+   return (
+    f"### ACTION: {action}
 
 "
-        f"- **Entry**: {entry}
+    f"- **Entry**: {entry}
 "
-        f"- **Target**: {target}
+    f"- **Target**: {target}
 "
-        f"- **Stop-Loss**: {stop}
+    f"- **Stop-Loss**: {stop}
 "
-        f"- **Reasoning**: {reason}"
-    )
+    f"- **Reasoning**: {reason}"
+)
 
 
 def execute_trade(action, symbol, quantity, price):
