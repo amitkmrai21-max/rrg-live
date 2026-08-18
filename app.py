@@ -727,6 +727,7 @@ def generate_fallback_signal(price, rsi, sma20, sma50):
 "
     f"- **Reasoning**: {reason}"
 )
+
  
 
 def execute_trade(action, symbol, quantity, price):
